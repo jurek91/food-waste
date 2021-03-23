@@ -4,4 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :restaurants
+  has_one :shopping_cart
+  has_many :orders
+  # ORDER MODEL TO BE GENERATED
 end
