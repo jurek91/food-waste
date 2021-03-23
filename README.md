@@ -1,24 +1,19 @@
-# README
+# FOOD WASTE (in development)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+This app aims to end food waste in Australia.
 
 * Ruby version
+ruby 2.6.6p146
 
 * System dependencies
 
 * Configuration
 
 * Database creation
-
+```rake db:create```
+```rake db:migrate```
 * Database initialization
-
+```rake db:seed``` -- to be implemented
 * How to run the test suite
+* ```rake test:database``` -- to be implemented
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
