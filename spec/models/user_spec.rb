@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
    
-  describe 'Validations'  do
+  describe 'Validations'  do 
 
     describe 'Valid' do 
       it "is valid with valid attributes" do
