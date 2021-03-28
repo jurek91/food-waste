@@ -15,7 +15,17 @@ ActiveRecord::Schema.define(version: 2021_03_23_224857) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "meals", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.string "name"
+    t.string "description"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_meals_on_restaurant_id"
+  end
+
+  create_table "restaurant_addresses", force: :cascade do |t|
     t.bigint "restaurant_id", null: false
     t.integer "unit_number"
     t.integer "street_number"
@@ -28,17 +38,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_224857) do
     t.float "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["restaurant_id"], name: "index_addresses_on_restaurant_id"
-  end
-
-  create_table "meals", force: :cascade do |t|
-    t.bigint "restaurant_id", null: false
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["restaurant_id"], name: "index_meals_on_restaurant_id"
+    t.index ["restaurant_id"], name: "index_restaurant_addresses_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 2021_03_23_224857) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "restaurants"
   add_foreign_key "meals", "restaurants"
+  add_foreign_key "restaurant_addresses", "restaurants"
   add_foreign_key "restaurants", "users"
   add_foreign_key "shopping_carts", "users"
 end

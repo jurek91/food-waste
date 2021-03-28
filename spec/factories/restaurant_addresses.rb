@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :address do
+  factory :restaurant_address do
     restaurant { nil }
     unit_number { 1 }
     street_number { 1 }

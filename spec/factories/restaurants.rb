@@ -1,7 +1,8 @@
 FactoryBot.define do
+
   factory :restaurant do
     user { nil }
-    name { "MyString" }
-    phone { "MyString" }
+    name { "test" }
+    phone { "0390871238" }
   end
 end
